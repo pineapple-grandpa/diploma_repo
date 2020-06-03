@@ -8,6 +8,7 @@
 
 namespace app\commands;
 
+use app\models\User;
 use Yii;
 use yii\console\Controller;
 
@@ -29,8 +30,6 @@ class RbacController extends Controller
         $auth->addChild($moder, $user);
         $auth->addChild($admin, $moder);
 
-        $auth->assign($admin, 3);
-        $auth->assign($user, 2);
-        $auth->assign($user, 1);
+        $auth->assign($admin, User::find()->one()->id);
     }
 }

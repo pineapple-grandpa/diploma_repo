@@ -51,7 +51,7 @@ $this->title = 'Settings';
 
 
         <div class="col-lg-offset-1 col-lg-11">
-            <a class="btn btn-success" href="/user/profile?id=<?= Yii::$app->user->getId() ?>">Back</a>
+            <a class="btn btn-success" href="/user/profile?id=<?= Yii::$app->user->getId() ?>&lim=10">Back</a>
             <?= Html::submitButton('Save changes', ['class' => 'btn btn-success']) ?>
         </div>
     </div>

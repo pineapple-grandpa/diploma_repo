@@ -191,4 +191,16 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return \Yii::$app->security->validatePassword($password, $this->password);
     }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if (count($this->settings) === 0) {
+            $userSettings = new UserSettings();
+            $userSettings->user_id = $this->id;
+            $userSettings->name = 'access_to_guests_to_write_on_wall';
+            $userSettings->save();
+        }
+
+        parent::afterSave($insert, $changedAttributes);
+    }
 }
