@@ -56,6 +56,7 @@ $messageArray = [];
 
 <?php \yii\widgets\Pjax::begin() ?>
 
+<?php if (count($chat->messages) > 0): ?>
 <div class="container messages-block">
     <?php $messageCount = 0; ?>
     <?php foreach ($chat->messages as $message): ?>
@@ -90,6 +91,7 @@ $messageArray = [];
         <?php endif; ?>
     <?php endforeach; ?>
 </div>
+<?php endif; ?>
 
 <?= Html::a(
     'Обновить',

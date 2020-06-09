@@ -48,6 +48,7 @@ $isOwner = ($user->getId() === $guest->getId());
         </div>
 
         <?php if ($isOwner): ?>
+        <div style="display: flex; justify-content: space-around">
             <div>
                 <a class="btn btn-success" href="/user/settings">Settings</a>
             </div>
@@ -57,7 +58,7 @@ $isOwner = ($user->getId() === $guest->getId());
             <div>
                 <a class="btn btn-success" href="/user/friends/all">Friends</a>
             </div>
-
+        </div>
         <?php else : ?>
             <div>
                 <a href="/user/chat/create?id=<?= $user->id ?>" class="btn btn-success">Send message</a><br>
