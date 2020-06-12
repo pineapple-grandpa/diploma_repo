@@ -134,7 +134,7 @@ $isOwner = ($user->getId() === $guest->getId());
                 <div class="wall-article-description">
 
                     <div class="wall-article-author">
-                        <a href="/user/profile?id=<?= $article->author_id ?>&lim=10"> <img
+                        <a onclick="redirect('/user/profile?id=<?= $article->author_id ?>&lim=10')" href="#"> <img
                                     style="width: 50px; height: 50px; border-radius: 50%;"
                                     src="/img/avatars/<?= $article->author_avatar ?>"></a>
                         <p><?= $article->author_name ?></p>
@@ -222,7 +222,7 @@ $isOwner = ($user->getId() === $guest->getId());
                     <div class="wall-article-comment">
 
                         <div class="wall-article-comment-author">
-                            <a href="/user/profile?id=<?= $comment->author_id ?>&">
+                            <a onclick="redirect('/user/profile?id=<?= $comment->author_id ?>&lim=10')" href="#">
                                 <img src="/img/avatars/<?= $comment->author_avatar ?>"></a> <br>
                             <p><?= $comment->author_name ?></p>
                             <p><?= $comment->created_at ?></p>
@@ -295,6 +295,12 @@ $isOwner = ($user->getId() === $guest->getId());
 </div>
 
 </body>
+
+<script>
+    function redirect(url) {
+        window.location.replace(url);
+    }
+</script>
 
 
 
